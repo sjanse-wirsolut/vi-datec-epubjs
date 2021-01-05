@@ -1,6 +1,6 @@
 {
   "name": "vi-datec-react-reader",
-  "version": "0.20.7",
+  "version": "0.20.8",
   "description": "The vi-datec epub-reader for React powered by ePubJS",
   "main": "lib/index.js",
   "scripts": {
