@@ -4,10 +4,10 @@ import { useSwipeable } from "react-swipeable";
 import { EpubView } from "..";
 import defaultStyles from "./style";
 
-const Swipeable = ({children, ...props}) => {
+const Swipeable = ({ children, ...props }) => {
   const handlers = useSwipeable(props);
-  return (<div { ...handlers }>{children}</div>);
-}
+  return <div {...handlers}>{children}</div>;
+};
 
 class TocItem extends PureComponent {
   setLocation = () => {
@@ -27,7 +27,7 @@ TocItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   setLocation: PropTypes.func,
-  styles: PropTypes.object
+  styles: PropTypes.object,
 };
 
 class ReactReader extends PureComponent {
@@ -36,12 +36,12 @@ class ReactReader extends PureComponent {
     this.readerRef = React.createRef();
     this.state = {
       expandedToc: false,
-      toc: false
+      toc: false,
     };
   }
   toggleToc = () => {
     this.setState({
-      expandedToc: !this.state.expandedToc
+      expandedToc: !this.state.expandedToc,
     });
   };
 
@@ -55,11 +55,11 @@ class ReactReader extends PureComponent {
     node.prevPage();
   };
 
-  onTocChange = toc => {
+  onTocChange = (toc) => {
     const { tocChanged } = this.props;
     this.setState(
       {
-        toc: toc
+        toc: toc,
       },
       () => tocChanged && tocChanged(toc)
     );
@@ -89,11 +89,11 @@ class ReactReader extends PureComponent {
     );
   }
 
-  setLocation = loc => {
+  setLocation = (loc) => {
     const { locationChanged } = this.props;
     this.setState(
       {
-        expandedToc: false
+        expandedToc: false,
       },
       () => locationChanged && locationChanged(loc)
     );
@@ -126,6 +126,7 @@ class ReactReader extends PureComponent {
       title,
       showToc,
       loadingView,
+      style,
       styles,
       locationChanged,
       swipeable,
@@ -137,17 +138,15 @@ class ReactReader extends PureComponent {
         <div
           style={Object.assign(
             {},
-            styles.readerArea,
+            style.readerArea,
             expandedToc ? styles.containerExpanded : {}
           )}
         >
           {showToc && this.renderTocToggle()}
           <div style={styles.titleArea}>{title}</div>
-          <Swipeable
-            onSwipedRight={this.prev}
-            onSwipedLeft={this.next}
-            trackMouse
-          >
+          <Swipeable onSwipedRight={this.prev}
+                     onSwipedLeft={this.next}
+                     trackMouse>
             <div style={styles.reader}>
               <EpubView
                 ref={this.readerRef}
@@ -183,7 +182,7 @@ ReactReader.defaultProps = {
   locationChanged: null,
   tocChanged: null,
   showToc: true,
-  styles: defaultStyles
+  styles: defaultStyles,
 };
 
 ReactReader.propTypes = {
@@ -193,7 +192,7 @@ ReactReader.propTypes = {
   locationChanged: PropTypes.func,
   tocChanged: PropTypes.func,
   styles: PropTypes.object,
-  swipeable: PropTypes.bool
+  swipeable: PropTypes.bool,
 };
 
 export default ReactReader;

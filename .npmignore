@@ -13,4 +13,5 @@ build
 public
 .DS_Store
 files
+.idea
 .eslintcache

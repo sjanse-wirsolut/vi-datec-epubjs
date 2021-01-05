@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as CSS from "csstype";
-import { BookOptions } from "epubjs/types/book";
-import { RenditionOptions } from "epubjs/types/rendition";
-import { Contents, EpubCFI, Rendition } from "epubjs";
+import { BookOptions } from "vi-datec-epubjs/types/book";
+import { RenditionOptions } from "vi-datec-epubjs/types/rendition";
+import { Contents, EpubCFI, Rendition } from "vi-datec-epubjs";
 
 interface EpubViewProps {
   url: string | ArrayBuffer;
