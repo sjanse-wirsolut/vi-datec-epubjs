@@ -60,6 +60,8 @@ function request(url, type, withCredentials, headers) {
 		xhr.responseType = BLOB_RESPONSE;
 	}
 
+	xhr.setRequestHeader("x-authorization", localStorage.getItem('local_jwt'));
+
 	if ((0, _core.isXml)(type)) {
 		// xhr.responseType = "document";
 		xhr.overrideMimeType("text/xml"); // for OPF parsing
