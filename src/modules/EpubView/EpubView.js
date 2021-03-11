@@ -82,7 +82,7 @@ class EpubView extends Component {
       this.rendition.prev();
     };
     this.nextPage = () => {
-      this.rendition.next();
+        this.rendition.next();
     };
     this.registerEvents();
     getRendition && getRendition(this.rendition);
@@ -127,11 +127,12 @@ class EpubView extends Component {
   render() {
     const { isLoaded } = this.state;
     const { loadingView, styles } = this.props;
-    return (
-      <div style={styles.viewHolder}>
-        {(isLoaded && this.renderBook()) || loadingView}
-      </div>
-    );
+        return (
+            <div style={styles.viewHolder}>
+              {(loadingView)}
+              {(isLoaded && this.renderBook())}
+            </div>
+        );
   }
 }
 

@@ -51,8 +51,9 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
+    "react-spinners": "^0.10.6",
     "react-swipeable": "^6.0.0",
-    "vi-datec-epubjs": "^0.3.88"
+    "vi-datec-epubjs": "^0.3.89"
   },
   "peerDependencies": {
     "react": ">=17.0.1",

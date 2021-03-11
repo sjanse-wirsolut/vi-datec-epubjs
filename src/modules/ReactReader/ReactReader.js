@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { useSwipeable } from "react-swipeable";
 import { EpubView } from "..";
 import defaultStyles from "./style";
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Swipeable = ({ children, ...props }) => {
   const handlers = useSwipeable(props);
@@ -178,7 +180,7 @@ class ReactReader extends PureComponent {
 }
 
 ReactReader.defaultProps = {
-  loadingView: <div style={defaultStyles.loadingView}>Loading…</div>,
+  loadingView: <div style={defaultStyles.loadingView}> <ClipLoader color={"#3f51b5"} css={"margin-bottom: 100px;"} size={150} /></div>,
   locationChanged: null,
   tocChanged: null,
   showToc: true,
