@@ -2,9 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { useSwipeable } from "react-swipeable";
 import { EpubView } from "..";
-import defaultStyles from "./style";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
+import defaultStyles from "./style";
 
 const Swipeable = ({ children, ...props }) => {
   const handlers = useSwipeable(props);
@@ -180,7 +180,8 @@ class ReactReader extends PureComponent {
 }
 
 ReactReader.defaultProps = {
-  loadingView: <div style={defaultStyles.loadingView}> <ClipLoader color={"#3f51b5"} css={"margin-bottom: 100px;"} size={150} /></div>,
+  //loadingView: <div style={defaultStyles.loadingView}> <ClipLoader color={"#3f51b5"} css={"margin-bottom: 100px;"} size={150} /></div>,
+  loadingView: <div style={defaultStyles.loadingView}> <img style={{height: "50px"}} src="https://leamos.com/icon/reader_loader.gif" /></div>,
   locationChanged: null,
   tocChanged: null,
   showToc: true,
@@ -191,8 +192,7 @@ ReactReader.propTypes = {
   title: PropTypes.string,
   loadingView: PropTypes.element,
   showToc: PropTypes.bool,
-  locationChanged: PropTypes.func,
-  tocChanged: PropTypes.func,
+  locationChanged: PropTypes.func,  tocChanged: PropTypes.func,
   styles: PropTypes.object,
   swipeable: PropTypes.bool,
 };
